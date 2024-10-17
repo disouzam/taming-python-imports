@@ -1,0 +1,12 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "notebook.formatOnSave.enabled": true,
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [
+        100
+    ],
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+}
