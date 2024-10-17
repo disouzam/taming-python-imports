@@ -163,3 +163,4 @@ cython_debug/
 
 # Auto-generated HTML files from markdown files
 README.html
+lessons-learned.html
