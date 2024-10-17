@@ -82,3 +82,31 @@ The second takeaway is that the option -m doesn't change the behavior of imports
 ## Takeawy #3
 
  The third takeaway, and the more serious so far, is that while it is possible to call a script or module from wherever you are in the command-line (your cwd), if you call it outside of the directory where it is saved, no import relative to that file will be imported or available to be used (in current case, modules math, other, packA, random will not be available to be imported).
+
+
+# Code Snippet 2
+
+The second code snippet is helpful to inspect the content of sys.path variables.
+
+```python
+import sys
+
+print("Paths in sys.path:")
+npaths=0
+for pathitem in sys.path:
+    npaths+=1
+    print(f"{npaths}: Path: {pathitem}")
+```
+
+When running start.py from root folder (```python test1/start.py```) and from `test1` folder (```python start.py```), the only difference is the modules imported. The paths are the same so far.
+
+
+```text
+1: Path: {root-folder}\test1
+2: Path: {Python installation directory}\python.zip
+3: Path: {Python installation directory}\DLLs
+4: Path: {Python installation directory}\Lib
+5: Path: {Python installation directory}
+6: Path: {root-folder}\.venv
+7: Path: {root-folder}\.venv\Lib\site-packages
+```
