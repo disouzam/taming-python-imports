@@ -34,4 +34,51 @@ python start.py
 ['math', 'other', 'packA', 'random', 'start']
 ```
 
-Fortunately, the results don't change when a virtual environment is activated and the steps above are repeated.
+Fortunately, the results don't change when a virtual environment is activated and the steps above are repeated. It is worth noting that packB was not imported due to the fact that there is no `__init__.py` inside this folder.
+
+After adding this file to packB folder the result of the following command was updated to:
+
+```bash
+echo > test1/packB/__init__.py
+cd test1
+python start.py
+```
+
+```bash
+['math', 'other', 'packA', 'packB', 'random', 'start']
+```
+
+## Takeaway #1
+So, the takeaway #1 is that __init__.py, even when empty of content, helps somehow with the import resolution
+
+## Continuation of tests
+Tests were repeated calling `start.py` as a module rather than a script ([Running Modules With the -m Option](https://realpython.com/run-python-scripts/#running-modules-with-the-m-option)) and the results were similar to what presented above.
+
+For completeness, the commands are reproduced below:
+
+From root folder:
+```bash
+python -m test1.start
+```
+
+```bash
+[]
+```
+
+Setting current working directory (cwd) to `test1`:
+```bash
+cd test1
+python -m start
+```
+
+```bash
+['math', 'other', 'packA', 'random', 'start']
+```
+
+## Takeaway #2
+
+The second takeaway is that the option -m doesn't change the behavior of imports at current setup of experiments.
+
+## Takeawy #3
+
+ The third takeaway, and the more serious so far, is that while it is possible to call a script or module from wherever you are in the command-line (your cwd), if you call it outside of the directory where it is saved, no import relative to that file will be imported or available to be used (in current case, modules math, other, packA, random will not be available to be imported).
