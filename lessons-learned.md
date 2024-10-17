@@ -33,3 +33,5 @@ python start.py
 ```bash
 ['math', 'other', 'packA', 'random', 'start']
 ```
+
+Fortunately, the results don't change when a virtual environment is activated and the steps above are repeated.
