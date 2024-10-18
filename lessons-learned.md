@@ -126,3 +126,44 @@ echo > test2/packA/__init__.py
 echo > test2/packA/subA/__init__.py
 echo > test2/packB/__init__.py
 ```
+A set of changes was added to commit `0c6d1d9` to have dummy implmentation of a function in `test2/custom_math.py` and imports worked both for calling `test2/start.py` from root folder or from inside `test2` folder.
+
+But when calling `test2/start.py` as a module, the module `custom_math` was not found.
+
+```bash
+Traceback (most recent call last):
+  File "<frozen runpy>", line 189, in _run_module_as_main
+  File "<frozen runpy>", line 112, in _get_module_details
+  File "test2\__init__.py", line 1, in <module>
+    from custom_math import func_math
+ModuleNotFoundError: No module named 'custom_math'
+```
+
+Import works, however, when calling `test2/start.py` from inside `test2` folder:
+
+```bash
+cd test2/ && py -m start
+```
+
+Outputs:
+```bash
+Available modules to import:
+1: Module name: custom_math
+2: Module name: other
+3: Module name: packA
+4: Module name: packB
+5: Module name: random
+6: Module name: start
+Paths in sys.path:
+1: Path: E:\GitHubRepos\taming-python-imports\test2
+2: Path: C:\Program Files\Python312\python312.zip
+3: Path: C:\Program Files\Python312\DLLs
+4: Path: C:\Program Files\Python312\Lib
+5: Path: C:\Program Files\Python312
+6: Path: E:\GitHubRepos\taming-python-imports\.venv
+7: Path: E:\GitHubRepos\taming-python-imports\.venv\Lib\site-packages
+
+
+
+func_math
+```
