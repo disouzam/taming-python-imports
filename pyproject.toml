@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "taming-python-imports"
+version = "0.1.0"
+description = "Repository to play with import behavior in Python"
+authors = ["Dickson Souza <36424026+disouzam@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
