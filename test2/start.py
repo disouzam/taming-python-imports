@@ -1,5 +1,6 @@
 import sys
 import pkgutil
+from custom_math import func_math
 
 
 search_path = ['.']  # set to None to see all modules importable from sys.path
@@ -18,3 +19,7 @@ npaths = 0
 for pathitem in sys.path:
     npaths += 1
     print(f"{npaths}: Path: {pathitem}")
+
+print("\n\n")
+
+func_math()
