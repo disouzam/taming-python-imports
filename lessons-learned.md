@@ -114,3 +114,15 @@ When running start.py from root folder (```python test1/start.py```) and from `t
 ## Takeaway #4
 
 Looking at the combination of modules made available and paths added to sys.path between the call to `start.py` made from root folder and the call made from `test1`, it is noted that paths are the same in both cases while modules are only available when the call is made from inside `test1`.
+
+
+# Overcoming limitations
+
+Adding `__init__.py` where it is missing:
+
+```bash
+echo > test2/__init__.py
+echo > test2/packA/__init__.py
+echo > test2/packA/subA/__init__.py
+echo > test2/packB/__init__.py
+```
