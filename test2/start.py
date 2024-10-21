@@ -3,11 +3,15 @@ from custom_math import func_math
 from custom_random import func_random
 
 
-def main() -> None:
+def main(level) -> int:
     """Entry point"""
-    func_math()
-    func_random()
+    level += 1
+    level = func_math(level)
+    level = func_random(level)
+    return level
 
 
 if __name__ == '__main__':
-    main()
+    level = 0
+    main(level)
+    print(f"Level: {level}")
