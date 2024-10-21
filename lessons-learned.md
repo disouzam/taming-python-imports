@@ -167,3 +167,7 @@ Paths in sys.path:
 
 func_math
 ```
+
+## Takeaway #5
+
+`__init__.py` alone doesn't solve the problem of dependency of whether file is called as a module or script and from its own folder or from another directory. From now on, the default action that I will consider for myself is to call (either as a script or as a module) always from the file directory.
